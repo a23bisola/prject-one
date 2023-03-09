@@ -1,0 +1,54 @@
+<%- include('layout/header') %>
+    
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h1 class="text-center mb-5">Edit User</h1>
+                <form class="needs-validation" novalidate action="/update/<%= user._id %>" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name"
+                            value="<%= user.name %>" required>
+                        <div class="invalid-feedback">
+                            Please enter your name.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email"
+                            value="<%= user.email %>" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone:</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" name="phone"
+                            value="<%= user.phone %>" required>
+                        <div class="invalid-feedback">
+                            Please enter your phone number.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image:</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <div class="invalid-feedback">
+                            Please choose an image.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <% if (user.image) { %>
+                            <label>Current Image:</label>
+                            <img src="<%= user.image %>" alt="user image" class="img-thumbnail">
+                            <% } %>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+<%- include('layout/footer') %>
